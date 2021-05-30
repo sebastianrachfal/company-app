@@ -13,7 +13,7 @@ export default function PaginationButton({
 	return (
 		<button
 			className={cx(
-				'p-2 w-[33px] rounded-xl transition duration-200 focus:outline-none',
+				'p-2 w-10 h-10 text-center rounded-full transition duration-200 focus:outline-none',
 				className
 			)}
 			onClick={onClick}

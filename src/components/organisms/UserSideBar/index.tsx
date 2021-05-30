@@ -45,40 +45,42 @@ export default function UserSideBar() {
 	const { user } = useSelector(userSelector);
 
 	return (
-		<aside className='col-span-3'>
-			<div className='w-full bg-white rounded-lg shadow-md h-fit'>
-				<div className='flex flex-col items-center p-2'>
-					<img
-						style={{ textIndent: '100%' }}
-						src={user?.image}
-						alt='profile'
-						className='w-12 my-2 overflow-hidden rounded-full whitespace-nowrap'
-					/>
-					<span className='text-lg font-semibold tracking-tight text-blue-500'>
-						{user?.name}
-					</span>
-					<span className='text-xs text-gray-500'>
-						Job title - Company
-					</span>
+		<div className='col-span-3'>
+			<aside className='sticky top-[65px]'>
+				<div className='w-full bg-white rounded-lg shadow-md h-fit'>
+					<div className='flex flex-col items-center p-2'>
+						<img
+							style={{ textIndent: '100%' }}
+							src={user?.image}
+							alt='profile'
+							className='w-20 my-2 overflow-hidden rounded-full whitespace-nowrap'
+						/>
+						<span className='text-lg font-semibold tracking-tight text-blue-500'>
+							{user?.name}
+						</span>
+						<span className='text-xs text-gray-500'>
+							Job title - Company
+						</span>
+					</div>
+					<div className='p-2 border-t-2 border-gray-200'>
+						<SideBarUserEntry
+							Icon={BiNetworkChart}
+							text='Your network'
+							iconBtn='network'
+						/>
+						<SideBarUserEntry
+							Icon={BsNewspaper}
+							text='Your publications'
+							iconBtn='plus'
+						/>
+					</div>
 				</div>
-				<div className='p-2 border-t-2 border-gray-200'>
-					<SideBarUserEntry
-						Icon={BiNetworkChart}
-						text='Your network'
-						iconBtn='network'
-					/>
-					<SideBarUserEntry
-						Icon={BsNewspaper}
-						text='Your publications'
-						iconBtn='plus'
-					/>
+				<div className='p-3'>
+					<SideBarLink Icon={BsNewspaper} text='Publications' />
+					<SideBarLink Icon={RiEarthFill} text='Ecosystem' />
+					<SideBarLink Icon={RiBuildingFill} text='Entities' />
 				</div>
-			</div>
-			<div className='p-3'>
-				<SideBarLink Icon={BsNewspaper} text='Publications' />
-				<SideBarLink Icon={RiEarthFill} text='Ecosystem' />
-				<SideBarLink Icon={RiBuildingFill} text='Entities' />
-			</div>
-		</aside>
+			</aside>
+		</div>
 	);
 }

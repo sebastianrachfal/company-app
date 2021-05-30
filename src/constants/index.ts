@@ -1,4 +1,3 @@
-import DDItem from 'classes/DropDownItem';
 import {
 	RiHome4Fill,
 	RiUser3Fill,
@@ -7,8 +6,13 @@ import {
 	RiBuildingFill,
 	RiFileList2Line,
 	RiFilePaper2Fill,
+	RiBuildingLine,
+	RiFilePaper2Line,
+	RiCommunityFill,
 } from 'react-icons/ri';
 import WItem from 'classes/WorkspaceItem';
+import DDItem from 'classes/DropDownItem';
+import UTItem from 'classes/UpdatesTagItem';
 
 export const WORKSPACE_ITEMS = [
 	new WItem(
@@ -94,4 +98,13 @@ export const DROPDOWN_DATA = [
 		],
 		color: 'text-gray-500',
 	},
+];
+
+export const UPDATES_TAGS = [
+	new UTItem('SAS', RiBuildingLine, 'bg-green-400'),
+	new UTItem('SARL', RiBuildingLine, 'bg-blue-300'),
+	new UTItem('Secondary business', RiBuildingLine, 'bg-yellow-400'),
+	new UTItem('Communities', RiCommunityFill, 'bg-gray-300'),
+	new UTItem('POA', RiFilePaper2Fill, 'bg-gray-200'),
+	new UTItem('Survey', RiFilePaper2Line, 'bg-gray-200'),
 ];

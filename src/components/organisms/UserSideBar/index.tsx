@@ -2,6 +2,8 @@ import { BiNetworkChart } from 'react-icons/bi';
 import { BsNewspaper } from 'react-icons/bs';
 import { RiEarthFill, RiBuildingFill } from 'react-icons/ri';
 import { IconType } from 'react-icons';
+import { useSelector } from 'react-redux';
+import { userSelector } from 'redux/slices/user';
 
 interface ISideBarUserEntry {
 	Icon: IconType;
@@ -40,17 +42,20 @@ function SideBarLink({ Icon, text }: ISideBarLink) {
 }
 
 export default function UserSideBar() {
+	const { user } = useSelector(userSelector);
+
 	return (
 		<aside className='col-span-3'>
 			<div className='w-full bg-white rounded-lg shadow-md h-fit'>
 				<div className='flex flex-col items-center p-2'>
 					<img
-						src='/assets/profile.svg'
+						style={{ textIndent: '100%' }}
+						src={user?.image}
 						alt='profile'
-						className='w-12 my-2'
+						className='w-12 my-2 overflow-hidden rounded-full whitespace-nowrap'
 					/>
 					<span className='text-lg font-semibold tracking-tight text-blue-500'>
-						Humberta Swift
+						{user?.name}
 					</span>
 					<span className='text-xs text-gray-500'>
 						Job title - Company

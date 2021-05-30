@@ -1,65 +1,15 @@
 import { useState, useRef, MutableRefObject } from 'react';
 import cx from 'classnames';
-import DDItem from 'classes/DropDownItem';
 import {
-	RiHome4Fill,
-	RiFilePaper2Fill,
-	RiUser3Fill,
-	RiBuildingFill,
-	RiHonourFill,
-	RiNewspaperFill,
-	RiFileList2Line,
 	RiDoorLockFill,
 	RiLogoutCircleLine,
 	RiSettings3Fill,
 } from 'react-icons/ri';
 import useOnClickOutside from './DropDown.hook';
 import { Link } from 'react-router-dom';
-
-const DROPDOWN_DATA = [
-	{
-		name: 'Platform',
-		items: [
-			new DDItem('Home', RiHome4Fill, '/workspace'),
-			new DDItem('Publications', RiNewspaperFill, '/workspace'),
-			new DDItem('People', RiUser3Fill, '/workspace'),
-			new DDItem('Entities', RiBuildingFill, '/workspace'),
-			new DDItem('Administration', RiHonourFill, '/workspace'),
-		],
-		color: 'text-gray-800',
-	},
-	{
-		name: 'Workspaces',
-		items: [
-			new DDItem(
-				'Client contract',
-				RiFilePaper2Fill,
-				'/workspace/client-contract/'
-			),
-			new DDItem(
-				'Supplier contract',
-				RiFilePaper2Fill,
-				'/workspace/supplier-contract/'
-			),
-			new DDItem(
-				'Corporate',
-				RiBuildingFill,
-				'/workspace/corporate-contract/'
-			),
-			new DDItem(
-				'Group norms',
-				RiFileList2Line,
-				'/workspace/group-norms/'
-			),
-			new DDItem(
-				'Real estate contracts',
-				RiFilePaper2Fill,
-				'/workspace/real-estate-contracts/'
-			),
-		],
-		color: 'text-gray-500',
-	},
-];
+import { useSelector } from 'react-redux';
+import { userSelector } from 'redux/slices/user';
+import { DROPDOWN_DATA } from 'constants/index';
 
 export default function NavDropdown() {
 	const [isShown, setIsShown] = useState(false);
@@ -73,6 +23,8 @@ export default function NavDropdown() {
 		),
 		color,
 	})).filter(({ items }) => items.length > 0);
+
+	const { user } = useSelector(userSelector);
 
 	useOnClickOutside(dropdownRef, buttonRef, () => setIsShown(false));
 
@@ -154,13 +106,13 @@ export default function NavDropdown() {
 						<div className='mt-1'>
 							<div className='flex items-center mb-2'>
 								<img
-									src='/assets/profile.svg'
+									src={user?.image}
 									alt='profile'
-									className='w-8'
+									className='w-8 rounded-full'
 								/>
 								<div className='flex flex-col ml-3'>
 									<span className='text-sm tracking-tight'>
-										Humberta Swift
+										{user?.name}
 									</span>
 									<span className='text-xs text-blue-500'>
 										See profile

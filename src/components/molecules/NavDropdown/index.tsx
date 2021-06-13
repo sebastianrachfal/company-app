@@ -104,33 +104,40 @@ export default function NavDropdown() {
 							Account
 						</span>
 						<div className='mt-1'>
-							<div className='flex items-center mb-2'>
-								<img
-									src={user?.image}
-									alt='profile'
-									className='w-8 rounded-full'
-								/>
-								<div className='flex flex-col ml-3'>
-									<span className='text-sm tracking-tight'>
-										{user?.name}
-									</span>
-									<span className='text-xs text-blue-500'>
-										See profile
+							<Link to='/me'>
+								<div className='flex items-center mb-2'>
+									<img
+										src={user?.image}
+										alt='profile'
+										className='w-8 rounded-full'
+									/>
+									<div className='flex flex-col ml-3'>
+										<span className='text-sm tracking-tight'>
+											{user?.name}
+										</span>
+										<span className='text-xs text-blue-500'>
+											See profile
+										</span>
+									</div>
+								</div>
+							</Link>
+							<Link to={'/privacy'}>
+								<div className='flex items-center mb-2 ml-1'>
+									<RiDoorLockFill className='w-6 h-6 text-gray-900' />
+									<span className='ml-4 text-sm text-gray-900'>
+										Privacy
 									</span>
 								</div>
-							</div>
-							<div className='flex items-center mb-2 ml-1'>
-								<RiDoorLockFill className='w-6 h-6 text-gray-900' />
-								<span className='ml-4 text-sm text-gray-900'>
-									Privacy
-								</span>
-							</div>
-							<div className='flex items-center mb-2 ml-1'>
-								<RiSettings3Fill className='w-6 h-6 text-gray-900' />
-								<span className='ml-4 text-sm text-gray-900'>
-									Settings
-								</span>
-							</div>
+							</Link>
+
+							<Link to={'/settings'}>
+								<div className='flex items-center mb-2 ml-1'>
+									<RiSettings3Fill className='w-6 h-6 text-gray-900' />
+									<span className='ml-4 text-sm text-gray-900'>
+										Settings
+									</span>
+								</div>
+							</Link>
 						</div>
 					</div>
 					<div className='flex items-center justify-center p-1 pt-3'>

@@ -22,9 +22,9 @@ export default function Navbar() {
 					<Search />
 				</div>
 				<div className='flex justify-end flex-1 space-x-2'>
-					<Icon id='house2' />
-					<Icon id='comments' colored />
-					<Icon id='bell' colored />
+					<Icon id='house2' href='/' />
+					<Icon id='comments' href='/comments' colored />
+					<Icon id='bell' href='/notifications' colored />
 				</div>
 			</nav>
 		</div>

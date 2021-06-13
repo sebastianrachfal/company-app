@@ -1,12 +1,8 @@
+import NotFound from 'components/atoms/NotFound';
 import Navbar from 'components/organisms/Navbar';
 import UserSideBar from 'components/organisms/UserSideBar';
 import Workspace from 'pages/Workspace';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { fetchSiteData } from 'redux/slices/api-data';
 import { useAppDispatch } from 'redux/store';
 
@@ -21,13 +17,12 @@ function App() {
 					<UserSideBar />
 					<article className='col-span-9'>
 						<Switch>
-							<Route exact path='/'>
-								<Redirect to='/workspace' />
-							</Route>
+							<Route exact path='/' component={Workspace} />
 							<Route
 								path='/workspace/:type?'
 								component={Workspace}
 							/>
+							<Route component={NotFound} />
 						</Switch>
 					</article>
 				</section>

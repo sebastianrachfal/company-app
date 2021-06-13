@@ -60,10 +60,10 @@ export const DROPDOWN_DATA = [
 		name: 'Platform',
 		items: [
 			new DDItem('Home', RiHome4Fill, '/workspace'),
-			new DDItem('Publications', RiNewspaperFill, '/workspace'),
-			new DDItem('People', RiUser3Fill, '/workspace'),
-			new DDItem('Entities', RiBuildingFill, '/workspace'),
-			new DDItem('Administration', RiHonourFill, '/workspace'),
+			new DDItem('Publications', RiNewspaperFill, '/publications'),
+			new DDItem('People', RiUser3Fill, '/people'),
+			new DDItem('Entities', RiBuildingFill, '/entities'),
+			new DDItem('Administration', RiHonourFill, '/administration'),
 		],
 		color: 'text-gray-800',
 	},
@@ -80,11 +80,7 @@ export const DROPDOWN_DATA = [
 				RiFilePaper2Fill,
 				'/workspace/supplier-contract/'
 			),
-			new DDItem(
-				'Corporate',
-				RiBuildingFill,
-				'/workspace/corporate-contract/'
-			),
+			new DDItem('Corporate', RiBuildingFill, '/workspace/corporate/'),
 			new DDItem(
 				'Group norms',
 				RiFileList2Line,

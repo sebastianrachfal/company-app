@@ -12,7 +12,7 @@ export default function ResumeYourWork() {
 	const [filterType, setFilterType] = useState(0);
 	const [selectedPage, setSelectedPage] = useState(0);
 	const [searchValue, setSearchValue] = useState('');
-	const { publications, users, isLoading } = useSelector(
+	const { publications, users } = useSelector(
 		(state: RootState) => state.apiData
 	);
 

@@ -22,7 +22,7 @@ export default function LatestUpdates() {
 	>([]);
 	const [selectedPage, setSelectedPage] = useState(0);
 	const [searchValue, setSearchValue] = useState('');
-	const { publications, users, isLoading } = useSelector(
+	const { publications, users } = useSelector(
 		(state: RootState) => state.apiData
 	);
 

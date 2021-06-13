@@ -57,5 +57,6 @@ export const fetchSiteData = () => async (dispatch: AppDispatch) => {
 
 export const { setLoading, setUsers, setPublications } =
 	publicationsSlice.actions;
+
 export default publicationsSlice.reducer;
 export const userSelector = (state: RootState) => state.user;

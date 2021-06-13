@@ -13,7 +13,7 @@ export default function Pagination({
 	setSelectedPage: (val: number) => void;
 	bumpPage: (val: number) => void;
 }) {
-	if (!pageCount || pageCount === 0) return null;
+	if (!pageCount) return null;
 
 	return (
 		<div className='flex justify-center w-full my-2 text-blue-800'>

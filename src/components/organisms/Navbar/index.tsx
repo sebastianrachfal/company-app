@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 	return (
-		<div className='sticky top-0 z-50 flex justify-center w-screen bg-white shadow-lg'>
+		<div className='sticky top-0 z-50 flex justify-center w-screen bg-white shadow-md'>
 			<nav className='w-screen max-w-[1280px] h-[50px] py-1.5 px-3 flex justify-between '>
 				<div className='flex flex-1'>
 					<Link to='/' className='w-10'>
@@ -24,7 +24,12 @@ export default function Navbar() {
 				<div className='flex justify-end flex-1 space-x-2'>
 					<Icon id='house2' href='/' />
 					<Icon id='comments' href='/comments' colored />
-					<Icon id='bell' href='/notifications' colored />
+					<Icon
+						id='bell'
+						href='/notifications'
+						colored
+						notifications
+					/>
 				</div>
 			</nav>
 		</div>

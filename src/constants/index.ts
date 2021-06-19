@@ -104,3 +104,62 @@ export const UPDATES_TAGS = [
 	new UTItem('POA', RiFilePaper2Fill, 'bg-gray-200'),
 	new UTItem('Survey', RiFilePaper2Line, 'bg-gray-200'),
 ];
+
+const TABLE_DATA = [
+	[
+		'Operation timeout',
+		'Renault company',
+		'France',
+		'#Tax',
+		'20/01/2018',
+		'Racine',
+	],
+	[
+		'Op. Prometheus',
+		'Renault HQ',
+		'USA',
+		'#M&A',
+		'18/02/2019',
+		'Clifford chance',
+	],
+	[
+		'Op. Latandre',
+		'Renault Brawden',
+		'Italia',
+		'#Social',
+		'18/02/2019',
+		'SVZ',
+	],
+];
+
+const FEES_DATA = [
+	['2019', 'CS 153', '3 500€', 'Clifford chance'],
+	['2018', 'CS 153', '9 500€', 'Linklaters'],
+	['2017', 'CS 47', '10 500€', 'Linklaters'],
+	['', 'CS 153', '18 500€', 'Linklaters'],
+	['', 'CS 32', '15 500€', 'Linklaters'],
+];
+
+export const USER_DATA = {
+	name: '',
+	country: 'New Brunswick',
+	city: 'Sandy Lake',
+	street: '1185, Richmond Ave',
+
+	email: '',
+	phone: '+33 0(1) 22 43 12',
+
+	expertise: 'Mergers and acquisition',
+	specialities: 'Cross border operation; Transaction over 500M$',
+	admission: 'Paris bar association; Tunisian bar association',
+	countries: 'Paris',
+
+	hourly: '610€/hour (Negociated)',
+	terms: 'Monthly 10k€ retainer - see with Jeanny Smith',
+	services: 'Corporate M&A and international acquisitions',
+	correspondants: ['Firstname Lastname', 'Firstname Lastname'],
+
+	proposals: TABLE_DATA,
+	internal: TABLE_DATA.map((item) => [...item.slice(0, 5), '']),
+	fees: FEES_DATA,
+};

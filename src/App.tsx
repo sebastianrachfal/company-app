@@ -1,6 +1,7 @@
 import NotFound from 'components/atoms/NotFound';
 import Navbar from 'components/organisms/Navbar';
 import UserSideBar from 'components/organisms/UserSideBar';
+import Me from 'pages/Me';
 import Workspace from 'pages/Workspace';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { fetchSiteData } from 'redux/slices/api-data';
@@ -22,6 +23,7 @@ function App() {
 								path='/workspace/:type?'
 								component={Workspace}
 							/>
+							<Route exact path='/me' component={Me} />
 							<Route component={NotFound} />
 						</Switch>
 					</article>

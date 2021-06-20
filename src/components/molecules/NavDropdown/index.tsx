@@ -5,7 +5,7 @@ import {
 	RiLogoutCircleLine,
 	RiSettings3Fill,
 	RiArrowDownSLine,
-	RiProfileLine,
+	RiUser3Fill,
 } from 'react-icons/ri';
 import useOnClickOutside from './DropDown.hook';
 import { Link, useLocation } from 'react-router-dom';
@@ -21,7 +21,7 @@ const getItemFromString = (item: string) => {
 		case 'settings':
 			return new DropDownItem('Settings', RiSettings3Fill, '');
 		case 'me':
-			return new DropDownItem('Profile', RiProfileLine, '');
+			return new DropDownItem('Profile', RiUser3Fill, '');
 		default:
 			return DROPDOWN_DATA[0].items[0];
 	}

@@ -7,19 +7,15 @@ import { RiChat1Fill, RiHome4Fill, RiNotification3Fill } from 'react-icons/ri';
 export default function Navbar() {
 	return (
 		<div className='sticky top-0 z-50 flex justify-center w-screen bg-white shadow-md'>
-			<nav className='w-full px-10 max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] h-[50px] py-1.5 flex justify-between '>
-				<div className='flex flex-1'>
-					<Link to='/' className='w-10'>
-						<img
-							src='/assets/logo.png'
-							alt='company logo'
-							className='max-h-full'
-						/>
+			<nav className='w-full px-10 max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] py-1.5 flex justify-between flex-wrap'>
+				<div className='flex items-center flex-1'>
+					<Link to='/' className='flex-shrink-0 w-8 h-8'>
+						<img src='/assets/logo.png' alt='company logo' />
 					</Link>
 
 					<NavDropdown />
 				</div>
-				<div className='flex-1 xs:flex-auto'>
+				<div className='order-3 w-full h-10 mt-4 xs:flex-auto md:order-none md:flex-1 md:mt-0'>
 					<Search />
 				</div>
 				<div className='flex justify-end flex-1 space-x-2'>

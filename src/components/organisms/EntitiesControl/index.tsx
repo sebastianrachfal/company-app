@@ -1,8 +1,7 @@
+import { useState } from 'react';
 import cx from 'classnames';
 import {
 	RiArrowDownLine,
-	RiFileListLine,
-	RiLayoutGridFill,
 	RiMoreFill,
 	RiSettings3Line,
 	RiFilterLine,
@@ -15,50 +14,14 @@ import {
 	RiUserFollowFill,
 } from 'react-icons/ri';
 import { BiSelectMultiple } from 'react-icons/bi';
+import { SortDir } from 'types';
 
 import Search from 'components/atoms/Search';
-import { ViewType, SortDir } from 'types';
-import { useState } from 'react';
+import FilterModal from 'components/molecules/FilterModal';
+import TypeSwitcher from 'components/molecules/TypeSwitcher';
 
 const Spacer = () => <div className='h-5 w-[1px] bg-gray-300 rounded-md'></div>;
 
-const Switcher = ({
-	viewType,
-	setViewType,
-}: {
-	viewType: ViewType;
-	setViewType: (vt: ViewType) => void;
-}) => {
-	return (
-		<div className='flex ml-auto overflow-hidden text-blue-800 border border-gray-200 rounded-md'>
-			<button
-				onClick={() => setViewType(ViewType.Grid)}
-				className={cx(
-					'flex items-center p-1.5 px-2 overflow-hidden text-sm focus:outline-none outline-none w-[70px] transition-all duration-200',
-					{
-						'!w-[30px]': viewType !== ViewType.Grid,
-						'bg-blue-200': viewType === ViewType.Grid,
-					}
-				)}
-			>
-				<RiLayoutGridFill className='flex-shrink-0 w-4 h-4 mr-2' /> Grid
-			</button>
-			<button
-				onClick={() => setViewType(ViewType.List)}
-				className={cx(
-					'flex items-center p-1.5 px-2 overflow-hidden text-sm focus:outline-none outline-none w-[70px] transition-all duration-200',
-					{
-						'!w-[30px]': viewType !== ViewType.List,
-						'bg-blue-200': viewType === ViewType.List,
-					}
-				)}
-			>
-				<RiFileListLine className='flex-shrink-0 w-4 h-4 mr-2' />
-				List
-			</button>
-		</div>
-	);
-};
 export default function EntitiesControl({
 	viewType,
 	setViewType,
@@ -78,9 +41,9 @@ export default function EntitiesControl({
 			<div className='flex items-center'>
 				<h2 className='text-xl'>Entities</h2>
 				<RiSettings3Line className='w-5 h-5 ml-2 text-gray-700' />
-				<Switcher {...{ viewType, setViewType }} />
+				<TypeSwitcher {...{ viewType, setViewType }} />
 			</div>
-			<div className='flex flex-wrap items-center w-full space-x-3 space-y-2'>
+			<div className='relative flex flex-wrap items-center w-full space-x-3 space-y-2'>
 				<button className='flex items-center p-1 px-2 mt-2 text-blue-800 bg-blue-200 rounded-md'>
 					<BiSelectMultiple className='w-5 h-5 mr-2' />
 					All
@@ -107,14 +70,7 @@ export default function EntitiesControl({
 					className='relative flex items-center text-gray-600 cursor-pointer focus:outline-none'
 					onClick={() => setFilterOpen(!filterOpen)}
 				>
-					<RiFilterLine
-						className={cx(
-							'w-5 h-5 mr-1.5 transition duration-200 opacity-100',
-							{
-								'opacity-0': filterOpen,
-							}
-						)}
-					/>
+					<RiFilterLine className={cx('w-5 h-5 mr-1.5')} />
 					<RiFilterFill
 						className={cx(
 							'w-5 h-5 absolute left-0 transition duration-100 opacity-0',
@@ -198,6 +154,8 @@ export default function EntitiesControl({
 						</div>
 					</div>
 				</div>
+
+				<FilterModal {...{ filterOpen }} />
 			</div>
 		</>
 	);

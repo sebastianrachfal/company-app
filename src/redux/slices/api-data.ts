@@ -40,6 +40,7 @@ export const fetchSiteData = () => async (dispatch: AppDispatch) => {
 				...pub,
 				title: pub.title[0].toUpperCase() + pub.title.slice(1),
 				type: Math.round(Math.random() * 4),
+				image: `https://source.unsplash.com/weekly?${pub.id}`,
 			}))
 		)
 	);

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
 	return (
 		<div className='sticky top-0 z-50 flex justify-center w-screen bg-white shadow-md'>
-			<nav className='w-screen max-w-[1280px] h-[50px] py-1.5 px-3 flex justify-between '>
+			<nav className='w-full px-10 max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] h-[50px] py-1.5 flex justify-between '>
 				<div className='flex flex-1'>
 					<Link to='/' className='w-10'>
 						<img

@@ -12,11 +12,11 @@ export default function LatestPublications() {
 		(state: RootState) => state.apiData
 	);
 	return (
-		<div className='h-[300px] w-full flex bg-white rounded-xl overflow-hidden'>
+		<div className='flex flex-col w-full overflow-hidden items-stretch md:max-h-[300px] bg-white md:flex-row rounded-xl'>
 			<Link to='/publication'>
 				<div className='relative h-full'>
 					<img
-						className='object-cover h-full w-80'
+						className='object-cover w-full h-80 md:h-full md:w-80'
 						alt='cover'
 						src='https://images.unsplash.com/photo-1621972751640-afca08e77f15?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80'
 					/>
@@ -35,7 +35,7 @@ export default function LatestPublications() {
 					</div>
 				</div>
 			</Link>
-			<div className='flex flex-col justify-between flex-1 h-full p-3'>
+			<div className='flex flex-col justify-between flex-1 h-full p-3 min-h-[300px]'>
 				<h2 className='text-xl font-semibold'>Latest publications</h2>
 				{publications
 					?.slice(1, 4)

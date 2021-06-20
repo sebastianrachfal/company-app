@@ -5,7 +5,7 @@ import Tables from './sections/Tables';
 
 export default function Me() {
 	return (
-		<div className='w-full h-full bg-white shadow-md rounded-xl'>
+		<div className='w-full h-full bg-white rounded-lg shadow-md'>
 			<BasicInfo />
 			<ExtendedInfo />
 			<PanelInfo />

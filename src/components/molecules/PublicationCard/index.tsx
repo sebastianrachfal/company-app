@@ -25,7 +25,9 @@ export default function PublicationCard({
 		<Link to='/publication'>
 			<div className='p-4 my-2 bg-white rounded-lg shadow-sm cursor-pointer h-[140px] flex flex-col justify-between'>
 				<h4 className='font-semibold text-blue-700'>{title}</h4>
-				<p className='my-2 text-sm text-gray-700'>{content}</p>
+				<p className='my-2 text-sm text-gray-700 truncate whitespace-normal max-h-10'>
+					{content}
+				</p>
 				<div className='flex items-center text-gray-700'>
 					{tag ? (
 						<UpdateTag tag={tag} />

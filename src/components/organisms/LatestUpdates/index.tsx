@@ -71,8 +71,9 @@ export default function LatestUpdates() {
 				}}
 			/>
 
-			<div className='flex space-x-1.5 my-2'>
+			<div className='flex justify-start max-w-full space-x-1.5 space-y-1.5 my-2 flex-wrap -ml-1.5'>
 				<UpdateTag
+					className='mt-1.5 ml-1.5'
 					tag={new UTItem('All', BiSelectMultiple, 'bg-white')}
 					onClick={() => {
 						setSelectedTags([]);

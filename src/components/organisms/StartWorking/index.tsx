@@ -17,7 +17,7 @@ export default function StartWorking() {
 				</button>
 			</div>
 			{isVisible && (
-				<div className='flex mt-4 mb-2 space-x-4'>
+				<div className='flex flex-col mt-4 mb-2 space-y-4 sm:space-y-0 sm:space-x-4 sm:flex-row'>
 					<MatterCard type={MatterCardType.Entities} />
 					<MatterCard type={MatterCardType.Ownership} />
 					<MatterCard type={MatterCardType.Calendar} />

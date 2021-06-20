@@ -10,6 +10,7 @@ export type APIPublicationType = {
 	type: WorkspaceType;
 	title: string;
 	body: string;
+	image: string;
 };
 
 export enum WorkspaceType {
@@ -18,4 +19,14 @@ export enum WorkspaceType {
 	CorporateContract,
 	GroupNorms,
 	RealEstateContract,
+}
+
+export enum ViewType {
+	Grid,
+	List,
+}
+
+export enum SortDir {
+	AZ = 0,
+	ZA = 1,
 }

@@ -13,9 +13,9 @@ export default function PublicationLine({
 }) {
 	return (
 		<Link to='/publication'>
-			<div className='flex h-16 overflow-hidden transition duration-200 rounded-md cursor-pointer hover:bg-gray-50'>
+			<div className='flex h-16 overflow-hidden truncate transition duration-200 rounded-md cursor-pointer hover:bg-gray-50'>
 				<img
-					className='object-cover w-16 h-full'
+					className='flex-shrink-0 object-cover w-16 h-full'
 					alt='publication'
 					src={
 						[
@@ -26,9 +26,7 @@ export default function PublicationLine({
 					}
 				/>
 				<div className='flex flex-col justify-between px-3 py-1'>
-					<h3 className='truncate text-md whitespace-nowrap'>
-						{name}
-					</h3>
+					<h3 className='truncate text-md'>{name}</h3>
 					<UserDataLine user={user} light={false} />
 				</div>
 			</div>

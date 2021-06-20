@@ -38,7 +38,7 @@ interface ISideBarLink {
 function SideBarLink({ Icon, text, href }: ISideBarLink) {
 	return (
 		<Link to={href}>
-			<div className='flex items-center py-2'>
+			<div className='flex items-center py-2 text-gray-600'>
 				<div className='flex items-center justify-center w-8'>
 					<Icon className='w-6 h-5' />
 				</div>
@@ -52,7 +52,7 @@ export default function UserSideBar() {
 	const { user } = useSelector(userSelector);
 
 	return (
-		<div className='col-span-3'>
+		<div className='col-span-12 lg:col-span-3'>
 			<aside className='sticky top-[65px]'>
 				<div className='w-full bg-white rounded-lg shadow-md h-fit'>
 					<Link to='/me'>
@@ -63,7 +63,7 @@ export default function UserSideBar() {
 								alt='profile'
 								className='w-20 my-2 overflow-hidden rounded-full whitespace-nowrap'
 							/>
-							<span className='text-lg font-semibold tracking-tight text-blue-500'>
+							<span className='text-lg font-semibold tracking-tight text-blue-500 truncate'>
 								{user?.name}
 							</span>
 							<span className='text-xs text-gray-500'>

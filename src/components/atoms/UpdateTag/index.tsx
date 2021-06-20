@@ -7,21 +7,24 @@ export default function UpdateTag({
 	tag,
 	active,
 	onClick,
+	className,
 }: {
 	tag: UTItem;
 	active?: boolean;
 	onClick?: MouseEventHandler<HTMLDivElement>;
+	className?: string;
 }) {
 	return (
 		<div
 			className={cx(
-				'flex items-center p-1 px-1.5 rounded-md cursor-pointer',
-				tag.color
+				'flex flex-shrink items-center p-1 px-1.5 rounded-md cursor-pointer',
+				tag.color,
+				className
 			)}
 			onClick={onClick}
 		>
 			<tag.ItemIcon className='w-4 h-4 text-gray-700' />
-			<span className='ml-2 text-sm text-gray-700 select-none'>
+			<span className='ml-2 text-sm text-gray-700 truncate select-none'>
 				{tag.name}
 			</span>
 			<RiCheckLine

@@ -1,6 +1,11 @@
 import { BiNetworkChart } from 'react-icons/bi';
 import { BsNewspaper } from 'react-icons/bs';
-import { RiEarthFill, RiBuildingFill } from 'react-icons/ri';
+import {
+	RiEarthFill,
+	RiBuildingFill,
+	RiUserAddFill,
+	RiAddLine,
+} from 'react-icons/ri';
 import { IconType } from 'react-icons';
 import { useSelector } from 'react-redux';
 import { userSelector } from 'redux/slices/user';
@@ -9,10 +14,10 @@ import { Link } from 'react-router-dom';
 interface ISideBarUserEntry {
 	Icon: IconType;
 	text: string;
-	iconBtn: string;
+	IconBtn: IconType;
 	href: string;
 }
-function SideBarUserEntry({ Icon, text, iconBtn, href }: ISideBarUserEntry) {
+function SideBarUserEntry({ Icon, text, IconBtn, href }: ISideBarUserEntry) {
 	return (
 		<Link to={href}>
 			<div className='flex items-center justify-between p-1'>
@@ -23,7 +28,7 @@ function SideBarUserEntry({ Icon, text, iconBtn, href }: ISideBarUserEntry) {
 					<span className='text-sm whitespace-nowrap'>{text}</span>
 				</div>
 				<button className='px-1 py-1 w-7 h-6 rounded-md border-[1px] border-gray-300 cursor-pointer focus:outline-none hover:bg-gray-100 flex justify-center items-center shadow-sm transition duration-100'>
-					<img src={`/assets/icons/${iconBtn}.svg`} alt={iconBtn} />
+					<IconBtn />
 				</button>
 			</div>
 		</Link>
@@ -76,13 +81,13 @@ export default function UserSideBar() {
 						<SideBarUserEntry
 							Icon={BiNetworkChart}
 							text='Your network'
-							iconBtn='network'
+							IconBtn={RiUserAddFill}
 							href='/network'
 						/>
 						<SideBarUserEntry
 							Icon={BsNewspaper}
 							text='Your publications'
-							iconBtn='plus'
+							IconBtn={RiAddLine}
 							href='/publications'
 						/>
 					</div>

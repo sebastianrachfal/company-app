@@ -2,6 +2,7 @@ import Search from 'components/atoms/Search';
 import NavDropdown from 'components/molecules/NavDropdown';
 import Icon from 'components/atoms/Icon';
 import { Link } from 'react-router-dom';
+import { RiChat1Fill, RiHome4Fill, RiNotification3Fill } from 'react-icons/ri';
 
 export default function Navbar() {
 	return (
@@ -22,10 +23,10 @@ export default function Navbar() {
 					<Search />
 				</div>
 				<div className='flex justify-end flex-1 space-x-2'>
-					<Icon id='house2' href='/' />
-					<Icon id='comments' href='/comments' colored />
+					<Icon Icon={RiHome4Fill} href='/' />
+					<Icon Icon={RiChat1Fill} href='/comments' colored />
 					<Icon
-						id='bell'
+						Icon={RiNotification3Fill}
 						href='/notifications'
 						colored
 						notifications

@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import Icon from 'components/atoms/Icon';
+import { RiSearchLine } from 'react-icons/ri';
 import { ChangeEventHandler } from 'react';
 
 export default function Search({
@@ -21,10 +21,7 @@ export default function Search({
 					className
 				)}
 			/>
-			<Icon
-				id='search'
-				className='absolute transform -translate-y-1/2 pointer-events-none right-1 top-1/2'
-			/>
+			<RiSearchLine className='absolute w-[18px] h-[18px] transform -translate-y-1/2 pointer-events-none right-2 top-1/2' />
 		</div>
 	);
 }

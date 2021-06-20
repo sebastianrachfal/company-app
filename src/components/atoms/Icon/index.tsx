@@ -1,8 +1,9 @@
 import cx from 'classnames';
+import { IconType } from 'react-icons';
 import { Link } from 'react-router-dom';
 
 interface IIcon {
-	id: string;
+	Icon: IconType;
 	colored?: boolean;
 	className?: string;
 	href?: string;
@@ -10,7 +11,7 @@ interface IIcon {
 }
 
 export default function Icon({
-	id,
+	Icon,
 	colored = false,
 	className,
 	href,
@@ -25,7 +26,7 @@ export default function Icon({
 					className
 				)}
 			>
-				<img src={`/assets/icons/${id}.svg`} alt={id} />
+				<Icon className='w-6 h-6 text-gray-700' />
 				{notifications && (
 					<div className='absolute pl-[1px] text-[10px] w-4 h-4 items-center justify-center flex text-white bg-blue-400 rounded-full -top-0.5 -right-0.5'>
 						2

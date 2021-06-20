@@ -59,7 +59,7 @@ export const DROPDOWN_DATA = [
 	{
 		name: 'Platform',
 		items: [
-			new DDItem('Home', RiHome4Fill, '/workspace'),
+			new DDItem('Home', RiHome4Fill, '/'),
 			new DDItem('Publications', RiNewspaperFill, '/publications'),
 			new DDItem('People', RiUser3Fill, '/people'),
 			new DDItem('Entities', RiBuildingFill, '/entities'),

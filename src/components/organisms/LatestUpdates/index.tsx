@@ -85,6 +85,7 @@ export default function LatestUpdates() {
 				/>
 				{UPDATES_TAGS.map((tag: UTItem) => (
 					<UpdateTag
+						key={tag.name}
 						tag={tag}
 						onClick={() => {
 							setSelectedTags(

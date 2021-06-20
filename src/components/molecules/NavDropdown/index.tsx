@@ -4,18 +4,35 @@ import {
 	RiDoorLockFill,
 	RiLogoutCircleLine,
 	RiSettings3Fill,
+	RiArrowDownSLine,
+	RiProfileLine,
 } from 'react-icons/ri';
 import useOnClickOutside from './DropDown.hook';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { userSelector } from 'redux/slices/user';
 import { DROPDOWN_DATA } from 'constants/index';
+import DropDownItem from 'classes/UpdatesTagItem';
+
+const getItemFromString = (item: string) => {
+	switch (item) {
+		case 'privacy':
+			return new DropDownItem('Privacy', RiDoorLockFill, '');
+		case 'settings':
+			return new DropDownItem('Settings', RiSettings3Fill, '');
+		case 'me':
+			return new DropDownItem('Profile', RiProfileLine, '');
+		default:
+			return DROPDOWN_DATA[0].items[0];
+	}
+};
 
 export default function NavDropdown() {
 	const [isShown, setIsShown] = useState(false);
 	const [searchValue, setSearchValue] = useState('');
 	const dropdownRef = useRef() as MutableRefObject<HTMLInputElement>;
 	const buttonRef = useRef() as MutableRefObject<HTMLInputElement>;
+
 	const dropdownItems = DROPDOWN_DATA.map(({ name, items, color }) => ({
 		name,
 		items: items.filter((item) =>
@@ -23,6 +40,19 @@ export default function NavDropdown() {
 		),
 		color,
 	})).filter(({ items }) => items.length > 0);
+
+	const location = useLocation()
+		.pathname.replace(/\//g, ' ')
+		.trim()
+		.split(' ');
+
+	const currentLocation = location[location.length - 1];
+
+	const currentItem: any =
+		DROPDOWN_DATA.flatMap(({ items }) => items).find(
+			({ name }) =>
+				currentLocation === name.toLowerCase().split(' ').join('-')
+		) || getItemFromString(currentLocation);
 
 	const { user } = useSelector(userSelector);
 
@@ -34,23 +64,18 @@ export default function NavDropdown() {
 				setIsShown(!isShown);
 			}}
 			ref={buttonRef}
-			// onBlur={() => isShown && setIsShown(false)}
-			className='select-none ml-2 md:ml-4 flex justify-between w-full px-1 cursor-pointer max-w-[200px] pr-4 relative'
+			className='select-none ml-2 md:ml-4 flex items-center justify-between w-full px-1 cursor-pointer max-w-[270px] pr-4 relative'
 		>
 			<div className='flex items-center'>
-				<img
-					src='/assets/icons/house.svg'
-					alt='location'
-					className='w-5'
-				/>
-				<h2 className='ml-2 text-lg font-semibold text-gray-600'>
-					Home
+				{currentItem.ItemIcon && (
+					<currentItem.ItemIcon className='w-5 h-5 text-gray-600' />
+				)}
+				<h2 className='ml-2 text-lg font-semibold text-gray-600 truncate'>
+					{currentItem.name}
 				</h2>
 			</div>
-			<img
-				src='/assets/icons/arrow-down.svg'
-				alt='dropdown'
-				className={cx('w-2 transform transition duration-200', {
+			<RiArrowDownSLine
+				className={cx('w-5 h-5 transform transition duration-200', {
 					'rotate-180': isShown,
 				})}
 			/>

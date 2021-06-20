@@ -19,7 +19,10 @@ export default function EntitiesView({
 	const {
 		user: { id },
 	} = useSelector(userSelector);
-	const { publications } = useSelector((state: RootState) => state.apiData);
+	const { publications, isLoading } = useSelector(
+		(state: RootState) => state.apiData
+	);
+	if (isLoading) return null;
 	const filteredPublications = publications
 		.filter((publication: APIPublicationType) =>
 			filterType === 1 ? publication.userId === id : true
@@ -28,6 +31,7 @@ export default function EntitiesView({
 		.filter((publication: APIPublicationType) =>
 			publication.title.toLowerCase().includes(searchValue)
 		);
+
 	return (
 		<div
 			className={cx(
@@ -47,7 +51,10 @@ export default function EntitiesView({
 					return 0;
 				})
 				.map((publication: APIPublicationType, index: number) => (
-					<EntityItem key={`entity-${index}`} entity={publication} />
+					<EntityItem
+						key={`entity-${publication.id}`}
+						entity={publication}
+					/>
 				))}
 		</div>
 	);

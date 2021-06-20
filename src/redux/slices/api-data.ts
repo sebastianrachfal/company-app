@@ -34,13 +34,14 @@ export const fetchSiteData = () => async (dispatch: AppDispatch) => {
 	dispatch(setLoading(true));
 
 	const pubs = await fetcher('https://jsonplaceholder.typicode.com/posts');
+
 	dispatch(
 		setPublications(
-			pubs.map((pub: APIPublicationType) => ({
+			pubs.map((pub: APIPublicationType, index: number) => ({
 				...pub,
 				title: pub.title[0].toUpperCase() + pub.title.slice(1),
 				type: Math.round(Math.random() * 4),
-				image: `https://source.unsplash.com/weekly?${pub.id}`,
+				image: `https://picsum.photos/seed/${pub.id}/80/80`,
 			}))
 		)
 	);

@@ -17,9 +17,10 @@ export default memo(function EntityItem({
 			<div className='flex h-[88px] p-1 rounded-md shadow-md cursor-pointer'>
 				<div className='flex-shrink-0 w-20 h-20'>
 					<img
-						className='w-20 h-20 rounded-md'
+						className='object-cover w-20 h-20 rounded-md'
 						src={image}
 						alt='entity'
+						crossOrigin='anonymous'
 					/>
 				</div>
 				<div className='flex-1 ml-2 truncate '>

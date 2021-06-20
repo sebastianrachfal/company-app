@@ -16,7 +16,7 @@ export default function Entities() {
 		<div
 			className={cx(
 				'flex flex-col w-full p-5 bg-white rounded-lg shadow-md',
-				{ 'fixed left-0 top-0 z-50': isFullscreen }
+				{ 'fixed left-0 top-0 z-50 min-h-screen': isFullscreen }
 			)}
 		>
 			<EntitiesControl

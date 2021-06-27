@@ -64,7 +64,7 @@ export default function NavDropdown() {
 				setIsShown(!isShown);
 			}}
 			ref={buttonRef}
-			className='select-none ml-2 md:ml-4 flex items-center justify-between w-full px-1 cursor-pointer max-w-[270px] pr-4 relative'
+			className='select-none ml-2 md:ml-4 flex items-center justify-between w-full px-1 cursor-pointer max-w-[270px] pr-4 relative z-50'
 		>
 			<div className='flex items-center'>
 				{currentItem.ItemIcon && (
@@ -103,7 +103,13 @@ export default function NavDropdown() {
 									<div className='mt-1 ml-1'>
 										{items.map(
 											({ name, ItemIcon, href }) => (
-												<Link to={href} key={name}>
+												<Link
+													to={href}
+													key={name}
+													onClick={() =>
+														setIsShown(false)
+													}
+												>
 													<div className='flex items-center py-1'>
 														<ItemIcon
 															className={`h-6 w-6 ${color}`}
@@ -129,7 +135,7 @@ export default function NavDropdown() {
 							Account
 						</span>
 						<div className='mt-1'>
-							<Link to='/me'>
+							<Link to='/me' onClick={() => setIsShown(false)}>
 								<div className='flex items-center mb-2'>
 									<img
 										src={user?.image}
@@ -146,7 +152,10 @@ export default function NavDropdown() {
 									</div>
 								</div>
 							</Link>
-							<Link to={'/privacy'}>
+							<Link
+								to={'/privacy'}
+								onClick={() => setIsShown(false)}
+							>
 								<div className='flex items-center mb-2 ml-1'>
 									<RiDoorLockFill className='w-6 h-6 text-gray-900' />
 									<span className='ml-4 text-sm text-gray-900'>
@@ -155,7 +164,10 @@ export default function NavDropdown() {
 								</div>
 							</Link>
 
-							<Link to={'/settings'}>
+							<Link
+								to={'/settings'}
+								onClick={() => setIsShown(false)}
+							>
 								<div className='flex items-center mb-2 ml-1'>
 									<RiSettings3Fill className='w-6 h-6 text-gray-900' />
 									<span className='ml-4 text-sm text-gray-900'>

@@ -23,12 +23,12 @@ export default function PublicationCard({
 	const { name, Icon } = WORKSPACE_ITEMS[type];
 	return (
 		<Link to='/publication'>
-			<div className='p-4 my-2 bg-white rounded-lg shadow-sm cursor-pointer h-[140px] flex flex-col justify-between'>
+			<div className='flex flex-col justify-between p-4 my-2 bg-white rounded-lg shadow-sm cursor-pointer'>
 				<h4 className='font-semibold text-blue-700'>{title}</h4>
-				<p className='my-2 text-sm text-gray-700 truncate whitespace-normal max-h-10'>
+				<p className='my-2 text-sm text-gray-700 truncate whitespace-normal xs:max-h-10'>
 					{content}
 				</p>
-				<div className='flex items-center text-gray-700'>
+				<div className='flex flex-wrap items-center text-gray-700'>
 					{tag ? (
 						<UpdateTag tag={tag} />
 					) : (

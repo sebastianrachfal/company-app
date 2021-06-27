@@ -15,7 +15,7 @@ export default function ListControls({
 	name: string;
 }) {
 	return (
-		<div className='flex justify-between'>
+		<div className='flex flex-wrap justify-between'>
 			<h2 className='text-xl font-semibold leading-8'>{name}</h2>
 			<div className='flex'>
 				<Search

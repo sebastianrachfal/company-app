@@ -15,7 +15,7 @@ function App() {
 		<Router>
 			<main className='min-h-screen z-[-1] flex flex-col items-center bg-gray-100'>
 				<Navbar />
-				<section className='px-10 max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] grid grid-cols-12 gap-10 pt-4 w-full h-full pb-20'>
+				<section className='px-2 xs:px-10 max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] flex flex-col xs:grid grid-cols-12 gap-10 pt-4 w-full h-full pb-20'>
 					<UserSideBar />
 					<article className='col-span-12 lg:col-span-9'>
 						<Switch>
